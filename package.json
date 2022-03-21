@@ -124,6 +124,7 @@
     "mobx": "^6.3.5"
   },
   "devDependencies": {
+    "@rollup/plugin-replace": "3.1.0",
     "@vaadin/application-theme-plugin": "./target/plugins/application-theme-plugin",
     "@vaadin/build-status-plugin": "./target/plugins/build-status-plugin",
     "@vaadin/theme-live-reload-plugin": "./target/plugins/theme-live-reload-plugin",
@@ -255,7 +256,9 @@
     "lit": "$lit",
     "@adobe/lit-mobx": "$@adobe/lit-mobx",
     "line-awesome": "$line-awesome",
-    "mobx": "$mobx"
+    "mobx": "$mobx",
+    "@hilla/form": "$@hilla/form",
+    "@hilla/frontend": "$@hilla/frontend"
   },
   "vaadin": {
     "dependencies": {
@@ -387,6 +390,6 @@
       "workbox-core": "6.5.0",
       "workbox-precaching": "6.5.0"
     },
-    "hash": "9e1a85738203418bbd033d0393ab1fc3f32d9d86a8d18ffdafb8d9e6a21871e7"
+    "hash": "a206b65b0ac1571aaedd45f8676306c1ef2b265a167ca84f3b37994fd1a07efc"
   }
 }

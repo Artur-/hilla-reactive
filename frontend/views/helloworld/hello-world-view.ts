@@ -2,6 +2,7 @@ import '@vaadin/button';
 import '@vaadin/notification';
 import { Notification } from '@vaadin/notification';
 import '@vaadin/text-field';
+import { HelloEndpoint } from 'Frontend/generated/endpoints';
 import { html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { View } from '../../views/view';
@@ -19,6 +20,7 @@ export class HelloWorldView extends View {
     return html`
       <vaadin-text-field label="Your name" @value-changed=${this.nameChanged}></vaadin-text-field>
       <vaadin-button @click=${this.sayHello}>Say hello</vaadin-button>
+      <vaadin-button @click=${this.sayManyThings}>Say many things</vaadin-button>
     `;
   }
 
@@ -26,7 +28,12 @@ export class HelloWorldView extends View {
     this.name = e.detail.value;
   }
 
-  sayHello() {
-    Notification.show(`Hello ${this.name}`);
+  async sayHello() {
+    Notification.show(await HelloEndpoint.sayHello(this.name));
+  }
+  async sayManyThings() {
+    HelloEndpoint.sayManyThings(this.name).onNext(value => {
+      Notification.show(value);
+    })
   }
 }
